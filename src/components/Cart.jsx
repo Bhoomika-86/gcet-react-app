@@ -25,7 +25,7 @@ const Navigate = useNavigate()
   };
 
   const placeOrder = async () => {
-    const url = ${API}/orders/new;
+    const url = `${API}/orders/new`;
     await axios.post(url, { email: user.email, orderValue: orderValue });
     setCart({});
     Navigate("/order")
