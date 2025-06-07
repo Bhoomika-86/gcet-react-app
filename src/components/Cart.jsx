@@ -14,21 +14,18 @@ const Navigate = useNavigate()
         return sum + value.price * (cart[value.pid] ?? 0);
       }, 0)
     );
-  }, []);
+  }, [cart]);
 
   const increment = (id) => {
-    alert(id);
-    cart[id] = cart[id] + 1;
+    setCart({...cart,[id]:cart[id]+1})
     console.log(cart);
   };
   const decrement = (id) => {
-    alert(id);
-    cart[id] = cart[id] - 1;
-    console.log(cart);
+    setCart({...cart,[id]:cart[id]-1})
   };
 
   const placeOrder = async () => {
-    const url = `${API}/orders/new`;
+    const url = ${API}/orders/new;
     await axios.post(url, { email: user.email, orderValue: orderValue });
     setCart({});
     Navigate("/order")
